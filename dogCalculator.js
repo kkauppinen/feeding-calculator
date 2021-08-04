@@ -27,6 +27,9 @@ function calcCalorieRequirement() {
         let energyRequirement = (dogRer * factor).toFixed(0);
         document.getElementById("energy_requirement").innerHTML = energyRequirement;
         printResults(dogWeight, idealWeight, false, energyRequirement);
+    } else {
+        let dogRer = calcRer(idealWeight).toFixed(0);
+        printResults(dogWeight, idealWeight, true, dogRer);
     }
     
 }
@@ -59,7 +62,19 @@ function printResults(currentWeight, idealWeight, isObese, calorieRequirement) {
         overWeightKgId.innerHTML = "0 kg";
         weightLossId.innerHTML = " ";
         energyRequirementId.innerHTML = calorieRequirement;
+    } else {
+        let safeLossMin = calcWeightLoss(currentWeight, 0.01);
+        let safeLossMax = calcWeightLoss(currentWeight, 0.02);
+        idealWeightId.innerHTML = idealWeight;
+        overWeightPercentId.innerHTML = ((currentWeight / idealWeight - 1) * 100).toFixed(0) + " %";
+        overWeightKgId.innerHTML = (currentWeight - idealWeight).toFixed(1) + " kg"
+        weightLossId.innerHTML = safeLossMin + " - " + safeLossMax + " g viikossa";
+        energyRequirementId.innerHTML = calorieRequirement;
     }
+}
+
+function calcWeightLoss(weight, factor) {
+    return ((weight * 1000) * factor);
 }
 
 function calcFeedingAmount() {
