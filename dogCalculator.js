@@ -8,13 +8,15 @@ function calcCalorieRequirement() {
     let idealWeight = Number(document.getElementById("normal_weight").value);
 
     if (idealWeight === 0) {
-        // Get ideal weight by bcs
+        idealWeight = calcIdealWeightByBcs(dogWeight);
     }
        
     let isDogObese = isObese(dogWeight, idealWeight);
 
-    if(!isDogObese) {
-        let dogRer = calcRer(dogWeight);
+    if(isDogObese < 0) {
+        document.getElementById("message").innerHTML = "Laskuri ei sovellu alipainoisille lemmikeille."
+    } else if(isDogObese === 0) {
+        let dogRer = calcRer(idealWeight);
         let factor;
         let factorSelector = document.getElementsByName("energy_factor");
 
@@ -31,18 +33,31 @@ function calcCalorieRequirement() {
         let dogRer = calcRer(idealWeight).toFixed(0);
         printResults(dogWeight, idealWeight, true, dogRer);
     }
-    
 }
 
 function isObese (currentWeight, idealWeight) {
     if (idealWeight > currentWeight) {
-        // Check if dog is too thin for calorie calculation
-        return false;
+        let underWeightFactor = currentWeight / idealWeight;
+        if (underWeightFactor < 0.9) {
+            return -1;
+        } else {
+           return 0; 
+        }
     } else if (idealWeight === currentWeight) {
-        return false;
+        return 0;
     } else {
-        return true;
+        return 1;
     }
+}
+
+function calcIdealWeightByBcs(weight) {
+    let weightFactor;
+    let bcs = Number(document.getElementById("bcs").value);
+
+    weightFactor = 0.5 + (0.1 * bcs);
+    idealWeight = weight / weightFactor;
+
+    return idealWeight.toFixed(1);
 }
 
 function calcRer(weight) {
@@ -58,9 +73,8 @@ function printResults(currentWeight, idealWeight, isObese, calorieRequirement) {
 
     if (!isObese) {
         idealWeightId.innerHTML = idealWeight;
-        overWeightPercentId.innerHTML = "0 %";
-        overWeightKgId.innerHTML = "0 kg";
-        weightLossId.innerHTML = " ";
+        overWeightPercentId.innerHTML = "...";
+        weightLossId.innerHTML = "...";
         energyRequirementId.innerHTML = calorieRequirement;
     } else {
         let safeLossMin = calcWeightLoss(currentWeight, 0.01);
