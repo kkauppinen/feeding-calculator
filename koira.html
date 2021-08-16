@@ -61,24 +61,21 @@
                             <option value="9" label="9"></option>
                           </datalist>
                 </div>
-                <div class="text-end mb-3">
-                    <button type="button" class="btn btn-info" id="energy_need">Laske energiantarve</button>
-                </div>
                 </form>
-            <!--Ruokintamäärän laskuri-->
+            <!--Feeding amount calculator-->
                 <form>
                     <fieldset class="mb-3">
                         <legend>Ruokinnan toteutus</legend>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="dry_feeding" class="form-check-input">
+                                <input type="radio" name="feeding_implementation" id="dry_feeding" class="form-check-input" value="1">
                                 <label for="dry_feeding" class="form-check-label">Kuivaruokinta</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="wet_feeding" class="form-check-input">
+                                <input type="radio" name="feeding_implementation" id="wet_feeding" class="form-check-input" value="2">
                                 <label for="wet_feeding" class="form-check-label">Märkäruokinta</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="mixed_feeding" class="form-check-input">
+                                <input type="radio" name="feeding_implementation" id="mixed_feeding" class="form-check-input" value="3">
                                 <label for="mixed_feeding" class="form-check-label">Sekaruokinta</label>
                             </div>
                     </fieldset>
@@ -129,7 +126,7 @@
                         </div>
                     </div>
                     <div class="text-end">
-                        <button type="button" class="btn btn-info" id="calc_feeding">Ruokintamäärä</button>
+                        <button type="button" class="btn btn-info" id="energy_need">Laske energiantarve</button>
                     </div>
                 </form>
             </div>
