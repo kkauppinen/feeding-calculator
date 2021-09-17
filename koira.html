@@ -1,19 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <title>Energiantarvelaskuri koirille</title>
-  </head>
 
-  <body>
-    <div class="container-md">
-        <h1>Energiantarvelaskuri koirille</h1>
-        <div class="row">
-            <div class="col-sm-6 border border-info p-4">
-<!-- Energy need calculator -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kirsu.io</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="" alt="logo" class="d-inline-block align-text-top">
+                Kirsu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-2">
+                        <a class="nav-link" href="index.html">Etusivu</a>
+                    </li>
+                    <li class="nav-item ms-2 dropdown">
+                        <a class="nav-link active dropdown-toggle" aria-current="page" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Energiantarvelaskuri
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="koira.html">Koirille</a></li>
+                            <li><a class="dropdown-item" href="kissa.html">Kissoille</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link" href="#">Yhteys</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="row px-2">
+            <div class="col-sm-12">
+                <h1>Energiantarvelaskuri koirille</h1>
+            </div>
+        </div>
+        <div class="row px-2 justify-content-evenly">
+            <div class="col-sm-6">
+                <!-- Energy need calculator -->
                 <form>
                     <div class="mb-3 text-danger" id="message"></div>
                     <div class="mb-3">
@@ -22,7 +61,8 @@
                     </div>
                     <fieldset class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="energy_factor" id="spayed" checked class="form-check-input" value="1.6">
+                            <input type="radio" name="energy_factor" id="spayed" checked class="form-check-input"
+                                value="1.6">
                             <label for="spayed" class="form-check-label">Steriloitu/kastroitu</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -30,7 +70,8 @@
                             <label for="intact" class="form-check-label">Leikkaamaton</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="energy_factor" id="obese_prone" class="form-check-input" value="1.3">
+                            <input type="radio" name="energy_factor" id="obese_prone" class="form-check-input"
+                                value="1.3">
                             <label for="obese_prone" class="form-check-label">Ylipainotaipuvainen</label>
                         </div>
                     </fieldset>
@@ -59,48 +100,51 @@
                             <option value="8" label="8"></option>
                             <option value="8.5"></option>
                             <option value="9" label="9"></option>
-                          </datalist>
-                </div>
+                        </datalist>
+                    </div>
                 </form>
-            <!--Feeding amount calculator-->
+                <!--Feeding amount calculator-->
                 <form>
                     <fieldset class="mb-3">
                         <legend>Ruokinnan toteutus</legend>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="dry_feeding" class="form-check-input" value="1">
-                                <label for="dry_feeding" class="form-check-label">Kuivaruokinta</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="wet_feeding" class="form-check-input" value="2">
-                                <label for="wet_feeding" class="form-check-label">Märkäruokinta</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="feeding_implementation" id="mixed_feeding" class="form-check-input" value="3">
-                                <label for="mixed_feeding" class="form-check-label">Sekaruokinta</label>
-                            </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="feeding_implementation" id="dry_feeding" class="form-check-input"
+                                value="1">
+                            <label for="dry_feeding" class="form-check-label">Kuivaruokinta</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="feeding_implementation" id="wet_feeding" class="form-check-input"
+                                value="2">
+                            <label for="wet_feeding" class="form-check-label">Märkäruokinta</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="feeding_implementation" id="mixed_feeding"
+                                class="form-check-input" value="3">
+                            <label for="mixed_feeding" class="form-check-label">Sekaruokinta</label>
+                        </div>
                     </fieldset>
                     <div class="row mb-3">
                         <div class="col-5">
-                         <label for="dry_brand" class="form-label">Kuivaruoka</label>
-                         <input type="text" id="dry_brand" class="form-control">
+                            <label for="dry_brand" class="form-label">Kuivaruoka</label>
+                            <input type="text" id="dry_brand" class="form-control">
                         </div>
-                         <div class="col-4">
-                             <label for="energy_content_dry" class="form-label">Energiasisältö</label>
-                             <input type="number" id="energy_content_dry" class="form-control">
-                         </div>
-                         <div class="col-3">
-                             <label for="energy_unit_dry" class="form-label">Yksikkö</label>
-                             <select class="form-select" id="energy_unit_dry">
-                                 <option value="0" selected>kcal/100g</option>
-                                 <option value="1">kJ/100g</option>
-                               </select>
-                         </div>
-                     </div>
+                        <div class="col-4">
+                            <label for="energy_content_dry" class="form-label">Energiasisältö</label>
+                            <input type="number" id="energy_content_dry" class="form-control">
+                        </div>
+                        <div class="col-3">
+                            <label for="energy_unit_dry" class="form-label">Yksikkö</label>
+                            <select class="form-select" id="energy_unit_dry">
+                                <option value="0" selected>kcal/100g</option>
+                                <option value="1">kJ/100g</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="row mb-3">
-                       <div class="col-3">
-                        <label for="wet_brand" class="form-label">Märkäruoka</label>
-                        <input type="text" id="wet_brand" class="form-control">
-                       </div>
+                        <div class="col-3">
+                            <label for="wet_brand" class="form-label">Märkäruoka</label>
+                            <input type="text" id="wet_brand" class="form-control">
+                        </div>
                         <div class="col-3">
                             <label for="energy_content_wet" class="form-label">Energiasisältö</label>
                             <input type="number" id="energy_content_wet" class="form-control">
@@ -110,7 +154,7 @@
                             <select class="form-select" id="energy_unit_wet">
                                 <option value="0" selected>kcal/100g</option>
                                 <option value="1">kJ/100g</option>
-                              </select>
+                            </select>
                         </div>
                         <div class="col-3">
                             <label for="unit_weight" class="form-label">Annoskoko</label>
@@ -126,12 +170,12 @@
                         </div>
                     </div>
                     <div class="text-end">
-                        <button type="button" class="btn btn-info" id="energy_need">Laske energiantarve</button>
+                        <button type="button" class="btn btn-info mb-2" id="energy_need">Laske energiantarve</button>
                     </div>
                 </form>
             </div>
-<!-- Results -->
-            <div class="col-sm-6">
+            <!-- Results -->
+            <div class="col-sm-5">
                 <div class="result mb-3">
                     <h3>Ihannepaino</h3>
                     <div id="ideal_weight">...</div>
@@ -155,10 +199,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
+    <footer class="py-2 bg-success">
+        <div class="col-12 text-center">
+            <p>(c) Kirsu 2021</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
 
-    <script src="dogCalculator.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+        <script src="dogCalculator.js"></script>
+</body>
+
 </html>
